@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
 
@@ -9,11 +13,13 @@ html,
 body {
   width: 100dvw;
   overflow-x: hidden;
-  background-color: black;
+  /* softer dark background instead of pure black */
+  background-color: #000;
   color: white;
   scroll-behavior: smooth;
   font-family: "Mona Sans", sans-serif;
 }
+
 
 section {
   width: 100dvw;
@@ -234,9 +240,7 @@ section {
     @apply border border-black-50 bg-black-100;
   }
 
-  .marquee-item {
-    @apply md:w-40 w-32;
-  }
+ 
 
   .timeline-wrapper {
     @apply absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center;
@@ -400,27 +404,7 @@ section {
   overflow: hidden;
   position: relative;
 }
-.marquee-box {
-  display: flex;
-  align-items: center;
-  width: 200%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  animation: marquee 60s linear infinite;
-}
-.marquee-item {
-  float: left;
-}
-@keyframes marquee {
-  0% {
-    left: 0;
-  }
-  100% {
-    left: -100%;
-  }
-}
-/* marquee end */
+
 
 .card {
   --start: 0;
