@@ -1,5 +1,6 @@
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+// src/sections/Hero.jsx
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
 import AnimatedCounter from "../components/AnimatedCounter";
 import Button from "../components/Button";
@@ -7,16 +8,22 @@ import { words } from "../constants";
 import HeroExperience from "../components/models/hero_models/HeroExperience";
 
 const Hero = () => {
-  useGSAP(() => {
-    gsap.fromTo(
-      ".hero-text h1",
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
-    );
-  });
+  const heroRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ".hero-text h1",
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.2, duration: 1, ease: "power2.inOut" }
+      );
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <section id="hero" className="relative overflow-hidden">
+    <section id="hero" ref={heroRef} className="relative overflow-hidden">
       <div className="absolute top-0 left-0 z-10">
         <img src="/images/bg.png" alt="" />
       </div>
@@ -37,7 +44,7 @@ const Hero = () => {
                       >
                         <img
                           src={word.imgPath}
-                          alt="person"
+                          alt={word.text}
                           className="xl:size-12 md:size-10 size-7 md:p-2 p-1 rounded-full bg-white-50"
                         />
                         <span>{word.text}</span>
@@ -51,7 +58,8 @@ const Hero = () => {
             </div>
 
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-            Hi, I’m Om Lahorey — a developer passionate about building <br/>thoughtful digital experiences that solve real problems.
+              Hi, I’m Om Lahorey — a developer passionate about building <br />
+              thoughtful digital experiences that solve real problems.
             </p>
 
             <Button
