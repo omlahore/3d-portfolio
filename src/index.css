@@ -9,16 +9,21 @@
   --gradient: radial-gradient(circle, #e5e5e5 0%, #fff 100%);
 }
 
-html,
-body {
-  width: 100dvw;
-  overflow-x: hidden;
-  /* softer dark background instead of pure black */
-  background-color: #000;
-  color: white;
-  scroll-behavior: smooth;
-  font-family: "Mona Sans", sans-serif;
-}
+  html,
+  body {
+    width: 100dvw;
+    overflow-x: hidden;
+    /* softer dark background instead of pure black */
+    background-color: #151515; /* Lighter background */
+  background-image: 
+    linear-gradient(to right, rgba(207, 207, 207, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px; /* Size of grid cells */
+  color: #111; /* Adjust text color for contrast */
+    color: white;
+    scroll-behavior: smooth;
+    font-family: "Mona Sans", sans-serif;
+  }
 
 
 section {
@@ -246,9 +251,15 @@ section {
     @apply absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center;
   }
 
-  .timeline {
-    @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black;
-  }
+ .timeline {
+  @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28;
+  background-color: #151515;
+  background-image: 
+    linear-gradient(to right, rgba(207, 207, 207, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
 
   .timeline-logo {
     @apply md:size-20 size-10 flex-none rounded-full flex justify-center items-center md:-translate-y-7 border border-black-50 bg-black-100;
