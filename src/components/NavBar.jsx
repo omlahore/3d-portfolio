@@ -43,7 +43,7 @@ const NavBar = () => {
         </nav>
           
         <div className="flex items-center gap-3">
-          <a href="#contact" className="contact-btn group">
+          <a href="https://drive.google.com/file/d/15zmCK9V5Qu6CSuaJ2JKLTrr2dnzPFdaj/view?usp=sharing" className="contact-btn group">
             <div className="inner">
               <span>Download Resume</span>
             </div>
